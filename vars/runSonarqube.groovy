@@ -4,7 +4,7 @@ def call(Map args) {
     stage("SonarQube Analysis") {
         withSonarQubeEnv('SonarQube') { // Replace with your SonarQube server name
             sh """
-                SonarQube-Scanner \
+                SonarQube \
                 -Dsonar.projectKey=${projectKey} \
                 -Dsonar.branch.name=${branchName} \
                 -Dsonar.sources=. \
