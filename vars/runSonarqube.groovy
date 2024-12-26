@@ -1,4 +1,6 @@
-def call(String projectKey, String branchName) {
+def call(Map args) {
+    def projectKey = args.projectKey ?: error("Missing projectKey")
+    def branchName = args.branchName ?: error("Missing branchName")
     stage("SonarQube Analysis") {
         withSonarQubeEnv('SonarQube') { // Replace with your SonarQube server name
             sh """
